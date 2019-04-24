@@ -75,6 +75,12 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Indieteur.BasicLoggingSystem, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Indieteur.BasicLoggingSystem.1.0.0\lib\Indieteur.BasicLoggingSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Indieteur.ChecksumZIP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Indieteur.ChecksumZIP.1.0.0\lib\Indieteur.ChecksumZIP.dll</HintPath>
+    </Reference>
     <Reference Include="Indieteur.SAMAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Indieteur.SteamAppsManAndVDFAPI.1.0.2\lib\Indieteur.SAMAPI.dll</HintPath>
     </Reference>
