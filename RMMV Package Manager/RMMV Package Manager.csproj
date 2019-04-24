@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C07E02E0-0CE3-42CC-B683-CF8F034DF27B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RMMV_PackMan</RootNamespace>
+    <AssemblyName>RMMV Package Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\Code Analysis\Default.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\Code Analysis\Default.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\Code Analysis\Default.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Indieteur.SAMAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Indieteur.SteamAppsManAndVDFAPI.1.0.2\lib\Indieteur.SAMAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Indieteur.SimpleDatabaseFormat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Indieteur.SimpleDatabaseFormat.1.0.0\lib\Indieteur.SimpleDatabaseFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Indieteur.VDFAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Indieteur.SteamAppsManAndVDFAPI.1.0.2\lib\Indieteur.VDFAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdvTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BackupMan\BackupManager Global.cs" />
+    <Compile Include="BackupMan\BackupManager Local.cs" />
+    <Compile Include="Error Handling\ExceptionMessages.cs" />
+    <Compile Include="Error Handling\GeneralExceptions.cs" />
+    <Compile Include="Error Handling\RMLogData.cs" />
+    <Compile Include="Etc.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddAssetGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddAssetGroup.Designer.cs">
+      <DependentUpon>frmAddAssetGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLicenseEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLicenseEdit.Designer.cs">
+      <DependentUpon>frmLicenseEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\StringConst.cs" />
+    <Compile Include="Logger\frmLogger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logger\frmLogger.Designer.cs">
+      <DependentUpon>frmLogger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpenFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpenFile.Designer.cs">
+      <DependentUpon>frmOpenFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPackageAssets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPackageAssets.Designer.cs">
+      <DependentUpon>frmPackageAssets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPackageInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPackageInfo.Designer.cs">
+      <DependentUpon>frmPackageInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPropPack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPropPack.Designer.cs">
+      <DependentUpon>frmPropPack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalClass.cs" />
+    <Compile Include="GUI\frmMain\BGWorker\Backups.cs" />
+    <Compile Include="GUI\frmMain\BGWorker\Misc.cs" />
+    <Compile Include="GUI\frmMain\BGWorkerPartialfrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMain\GlobalOrLocalSharedControls.cs" />
+    <Compile Include="GUI\frmMain\GUIPartialfrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmMain\PackageInfoControls.cs" />
+    <Compile Include="GUI\frmPackageAssets\frmPackageAssetsPartialBG\Misc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPackageAssets\frmPackageAssetsPartialBG\View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPackageAssets\frmPackageAssetsPartialBG\Save.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPackageAssets\frmPackageAssetsPartialBG\AddOrRemove.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmPackageAssets\frmPackAssetBGWorker\ControlSetupStrings.cs" />
+    <Compile Include="GUI\frmPackageAssets\frmPackAssetBGWorker\ControlSetup.cs" />
+    <Compile Include="GUI\frmPackageAssets\frmPackAssetTNodeTag\ToString.cs" />
+    <Compile Include="GUI\frmPackageAssets\frmPackAssetTNodeTag\FileLevel.cs" />
+    <Compile Include="GUI\frmPackageAssets\frmPackAssetTNodeTag\GroupLevel.cs" />
+    <Compile Include="GUI\frmPackageAssets\frmPackAssetTNodeTag\CollectionLevel.cs" />
+    <Compile Include="GUI\frmPropPack\frmPropPackPartial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logger\frmLogMoreInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logger\frmLogMoreInfo.Designer.cs">
+      <DependentUpon>frmLogMoreInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Logger\Advanced.cs" />
+    <Compile Include="Logger\LoggerMessages.cs" />
+    <Compile Include="MessageBoxStrings.cs" />
+    <Compile Include="PackageSys\GeneratorPartsManager\SpecialParts.cs" />
+    <Compile Include="PackageSys\PackageManagement\Etc\Copy\AudioCopy.cs" />
+    <Compile Include="PackageSys\PackageManagement\Etc\Copy\CharacterCopy.cs" />
+    <Compile Include="PackageSys\PackageManagement\Etc\Copy\GeneratorCopy.cs" />
+    <Compile Include="PackageSys\PackageManagement\Etc\Copy\MoviesCopy.cs" />
+    <Compile Include="PackageSys\PackageManagement\Etc\PackageUtil.cs" />
+    <Compile Include="PackageSys\PackageManagement\Etc\Copy\SingleFileCopy.cs" />
+    <Compile Include="PackageSys\PackageManagement\Etc\Copy\TilesetCopy.cs" />
+    <Compile Include="PackageSys\PackageManagement\OpenProject.cs" />
+    <Compile Include="PackageSys\PackageManagement\PackageUpdater.cs" />
+    <Compile Include="PackageSys\PackSysExtensionIEnumerable.cs" />
+    <Compile Include="PackageSys\GeneratorPartsManager\GeneratorPartsManager.cs" />
+    <Compile Include="PackageSys\InstalledPackage.cs" />
+    <Compile Include="PackageSys\PackageManagement\Installer\CharacterInstaller.cs" />
+    <Compile Include="PackageSys\PackageManagement\Installer\SingleFileInstaller.cs" />
+    <Compile Include="PackageSys\PackageManagement\Installer\AudioInstaller.cs" />
+    <Compile Include="PackageSys\PackageManagement\Installer\GeneratorInstaller.cs" />
+    <Compile Include="PackageSys\PackageManagement\Installer\PackageInstaller.cs" />
+    <Compile Include="PackageSys\PackageManagement\Installer\MoviesInstaller.cs" />
+    <Compile Include="PackageSys\PackageManagement\Installer\TilesetInstaller.cs" />
+    <Compile Include="PackageSys\PackageManagement\NewProject.cs" />
+    <Compile Include="PackageSys\PackageManagement\PackageManagement.cs" />
+    <Compile Include="ArchiveManagement.cs" />
+    <Compile Include="PackageSys\PackageManagement\ProjectPackMan.cs" />
+    <Compile Include="PackageSys\PackageManagement\PackageReinstaller.cs" />
+    <Compile Include="PackageSys\PackageManagement\Uninstaller\Generator.cs" />
+    <Compile Include="PackageSys\PackageManagement\Uninstaller\PackageUninstaller.cs" />
+    <Compile Include="PMFileSystem.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="RMPack\PackageTree\Audio\RMAudioExtension.cs" />
+    <Compile Include="RMPack\PackageTree\Extension.cs" />
+    <Compile Include="RMPack\PackageTree\Generator\GenFileNameParser.cs" />
+    <Compile Include="RMPack\PackageTree\Generator\RMGenExtension.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Characters\RMCharacterExt.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Tilesets\RMTilesetExt.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Tilesets\TilesetNameParser.cs" />
+    <Compile Include="RMPack\PackageTree\Movies\RMMovieExt.cs" />
+    <Compile Include="RMPack\PackageTree\RMCollectionExt.cs" />
+    <Compile Include="RMPack\PackageTree\RMPackFile.cs" />
+    <Compile Include="RMPack\PackageTree\RMPackGroup.cs" />
+    <Compile Include="RMPack\PackageTree\SingleFile\RMSingleFileExt.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Vars.cs" />
+    <Compile Include="MVDirectoryChecker.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RMPack\ImplicitProbe\CollectionsProbe\TilesetProbe.cs" />
+    <Compile Include="RMPack\ImplicitProbe\CollectionsProbe\MovieProbe.cs" />
+    <Compile Include="RMPack\ImplicitProbe\CollectionsProbe\AudioProbe.cs" />
+    <Compile Include="RMPack\ImplicitProbe\CollectionsProbe\CharactersProbe.cs" />
+    <Compile Include="RMPack\ImplicitProbe\CollectionsProbe\SingleFileCollectionProbe.cs" />
+    <Compile Include="RMPack\ImplicitProbe\Extension.cs" />
+    <Compile Include="RMPack\ImplicitProbe\CollectionsProbe\GeneratorProbe.cs" />
+    <Compile Include="RMPack\ImplicitProbe\RMImplicit.cs" />
+    <Compile Include="RMPack\PackageTree\Data\RMDataCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Battlebacks\RMBattleBacks2_Collection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Battlebacks\RMBattleBacks1_Collection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Characters\RMCharImageGroup.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Characters\RMCharImageCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Characters\RMCharImageFile.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Tilesets\RMTilesetGroup.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Tilesets\RMTilesetCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Tilesets\RMTilesetFile.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Ttiles\RMTitles1_Collection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Ttiles\RMTitles2_Collection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\System\RMSysImageCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Pictures\RMPictureCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Parallaxes\RMParallaxCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Movies\RMMovieGroup.cs" />
+    <Compile Include="RMPack\PackageTree\Movies\RMMovieCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Movies\RMMovieFile.cs" />
+    <Compile Include="RMPack\PackageTree\Plugins\RMPluginsCollection.cs" />
+    <Compile Include="RMPack\PackageTree\SingleFile\RMSingleFile.cs" />
+    <Compile Include="RMPack\PackageTree\Exceptions.cs" />
+    <Compile Include="RMPack\PackageTree\Generator\RMGeneratorCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Generator\RMGenFile.cs" />
+    <Compile Include="RMPack\PackageTree\Generator\RMGenGroup.cs" />
+    <Compile Include="RMPack\PackageTree\Helper.cs" />
+    <Compile Include="RMPack\PackageTree\Images\Animations\RMAnimationCollection.cs" />
+    <Compile Include="RMPack\PackageTree\Audio\RMAudioFile.cs" />
+    <Compile Include="RMPack\PackageTree\Audio\RMAudioGroup.cs" />
+    <Compile Include="RMPack\PackageTree\Audio\RMAudioCollection.cs" />
+    <Compile Include="RMPack\PackageTree\RMPackage.cs" />
+    <Compile Include="RMPack\PackageTree\RMPackLic.cs" />
+    <Compile Include="RMPack\PackageTree\RMCollection.cs" />
+    <Compile Include="RMPack\PackageTree\SingleFile\RMSingleFileCollection.cs" />
+    <Compile Include="RMPack\RMPackObject.cs" />
+    <Compile Include="RMPack\RMPConstants.cs" />
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddAssetGroup.resx">
+      <DependentUpon>frmAddAssetGroup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLicenseEdit.resx">
+      <DependentUpon>frmLicenseEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logger\frmLogger.resx">
+      <DependentUpon>frmLogger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpenFile.resx">
+      <DependentUpon>frmOpenFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPackageAssets.resx">
+      <DependentUpon>frmPackageAssets.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPackageInfo.resx">
+      <DependentUpon>frmPackageInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPropPack.resx">
+      <DependentUpon>frmPropPack.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logger\frmLogMoreInfo.resx">
+      <DependentUpon>frmLogMoreInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
