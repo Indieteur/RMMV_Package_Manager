@@ -34,7 +34,6 @@ namespace RMMV_PackMan
         {
 
             Logger.WriteInformationLog(LoggerMessages.ArchiveManagement.Information.CreateZipStart(directoryOfFiles, pathToCreateZip), _namespace);
-            frmLoading formLoading = null;
             try
             {
                 ChecksumZIP.CreateArchiveFromDirectory(directoryOfFiles, pathToCreateZip, false, overwrite, CompressionLevel.Optimal, useRootFolder);

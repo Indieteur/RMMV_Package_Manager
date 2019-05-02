@@ -178,7 +178,7 @@ namespace RMMV_PackMan
                 newPack.SaveToFile(backupXMLInstallerPath, _namespace, RMPackage.SaveToFileMode.ImplicitAssetInfo, 
                     logMessage: new WriteAllTextLogMessages(writeFailed: MakeInstalledPackagesMessages.Error.UnableCreateInstXML, logGroup: log));
             }
-            catch (Exception ex)
+            catch
             {
                 if (onErrorBackup())
                     goto onerrorContinue;
@@ -225,7 +225,7 @@ namespace RMMV_PackMan
                 newPack.SaveToFile(installedXMLDest, _namespace,  RMPackage.SaveToFileMode.ExplicitAssetInfo, 
                     logMessage: new WriteAllTextLogMessages(writeFailed: MakeInstalledPackagesMessages.Error.UnableMakeMainXML));
             }
-            catch (Exception ex)
+            catch
             {
                 Helper.DeleteFolderSafely(tempPackDir, _namespace, out exResult, LoggerMessages.GeneralError.UNABLE_DELETE_TEMP_DIR_ARG);
                 Helper.DeleteFolderSafely(newPackDir, _namespace, out exResult, LoggerMessages.GeneralError.UNABLE_DELETE_UNUSED_DIR_ARG);

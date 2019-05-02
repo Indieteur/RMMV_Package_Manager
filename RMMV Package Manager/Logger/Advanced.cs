@@ -3,7 +3,6 @@ using System;
 using System.Configuration;
 using System.Reflection;
 using System.Windows.Forms;
-using Indieteur.BasicLoggingSystem;
 namespace RMMV_PackMan
 {
     public static partial class Logger

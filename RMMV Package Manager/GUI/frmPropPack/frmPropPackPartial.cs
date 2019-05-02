@@ -171,7 +171,7 @@ namespace RMMV_PackMan
             {
                 retVal.SaveToFile(saveFileDialog.FileName, _namespace, logMessage: new WriteAllTextLogMessages(writeFailed: frmPropPackMessagse.Error.UnableSaveXML));
             }
-            catch (Exception ex)
+            catch
             {
                 Helper.ShowMessageBox(MessageBoxStrings.GUI.frmPropPack.UnableSaveXML(saveFileDialog.FileName), MessageBoxStrings.MESSAGEBOX_NAME, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -299,7 +299,7 @@ namespace RMMV_PackMan
             {
                 finalPackage.SaveToFile(xmlPath, _namespace, logMessage: new WriteAllTextLogMessages(writeFailed: frmPropPackMessagse.Error.ZipSaveXMLFailed));
             }
-            catch (Exception ex)
+            catch
             {
                 Helper.ShowMessageBox(MessageBoxStrings.GUI.frmPropPack.ZIP_FILE_MAKE_ERR_GEN, MessageBoxStrings.MESSAGEBOX_NAME, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CleanupMakeTemp(_namespace, false);

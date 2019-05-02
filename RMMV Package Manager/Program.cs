@@ -109,7 +109,7 @@ namespace RMMV_PackMan
             {
                 processesRunning = Process.GetProcesses(); 
             }
-            catch (Exception ex)
+            catch
             {
                 Helper.ShowMessageBox(MessageBoxStrings.AtTheStart.SI_PROC_RETRIEVE_FAIL, MessageBoxStrings.MESSAGEBOX_NAME, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
